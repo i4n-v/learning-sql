@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: sql-learning-pg
+    volumes:
+      - ./scripts:/scripts
+      - ./scripts/create-database.sql:/docker-entrypoint-initdb.d/create-database.sql
+    environment: POSTGRES_USER='root'
+      POSTGRES_PASSWORD='root'
+    ports:
+      - "5432:5432"
